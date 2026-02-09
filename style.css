@@ -1,0 +1,825 @@
+:root {
+    --bg-blue-light: #009FE3; /* Azul Celeste Vibrante (Hero) */
+    --bg-blue-dark: #0077b6; /* Variación para gradientes */
+    --text-white: #ffffff;
+    --text-dark: #333333;
+    --shape-green: #A3D977; /* Verde orgánico */
+    --shape-yellow: #F4D35E; /* Amarillo orgánico */
+    --overlay-color: rgba(14, 28, 54, 0.5); /* Azul grisáceo oscuro */
+    --card-bg: #ffffff;
+    --font-main: 'Montserrat', sans-serif;
+    --font-secondary: 'Open Sans', sans-serif;
+    --whatsapp-green: #25D366;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-secondary);
+    background-color: var(--card-bg);
+    overflow-x: hidden;
+}
+
+/* Typography Utility */
+h1, h2, h3, h4 {
+    font-family: var(--font-main);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 100%;
+}
+
+/* =========================================
+   1. HERO SECTION
+   ========================================= */
+.hero-section {
+    background-color: var(--bg-blue-light);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden; /* Para las formas orgánicas que sobresalen */
+}
+
+/* Layout 2 Columnas */
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+}
+
+/* Left Column: Content */
+.hero-content {
+    z-index: 2; /* Encima de las formas */
+    padding-right: 20px;
+}
+
+.hero-title {
+    color: var(--text-white);
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    color: var(--text-white);
+    font-size: 1.2rem;
+    font-weight: 400;
+    opacity: 0.9;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* CTA "Bloque Visual" */
+.whatsapp-block {
+    display: inline-flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.15); /* Sutil */
+    padding: 15px 30px;
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: var(--text-white);
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-block:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.wa-icon-large {
+    font-size: 2.5rem;
+    margin-right: 15px;
+    color: var(--text-white);
+}
+
+.wa-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.wa-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.wa-number {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+/* Right Column: Image */
+.hero-image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Organic Shapes (Background Layer) */
+.organic-shape {
+    position: absolute;
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    z-index: 1;
+    animation: float 6s ease-in-out infinite;
+}
+
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    background-color: var(--shape-green);
+    top: -50px;
+    right: 20px;
+    opacity: 0.8;
+}
+
+.shape-2 {
+    width: 200px;
+    height: 200px;
+    background-color: var(--shape-yellow);
+    bottom: -30px;
+    left: 40px;
+    opacity: 0.8;
+    animation-delay: 1s;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* Main Photo */
+.profile-photo {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 10px solid var(--text-white);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 2; /* Sobre las formas */
+}
+
+/* =========================================
+   2. SECCIÓN "ME ACOMPAÑAN" (CAROUSEL)
+   ========================================= */
+.partners-section {
+    position: relative;
+    padding: 80px 0;
+    text-align: center;
+    background: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+    background-attachment: fixed;
+    overflow: hidden; /* Importante para el carrousel */
+}
+
+/* Overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-color);
+    z-index: 1;
+}
+
+.partners-content {
+    position: relative;
+    z-index: 2;
+    width: 100%; /* Full width para el carrousel */
+    max-width: 100%;
+    padding: 0;
+}
+
+.section-title {
+    color: var(--text-white);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    color: var(--text-white);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 60px;
+    opacity: 0.8;
+}
+
+/* Carousel Container */
+.carousel-track-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.carousel-track {
+    display: flex;
+    width: calc(300px * 10); /* 5 logos * 2 sets */
+    gap: 40px; 
+}
+
+/* Animations defined specifically */
+.scroll-left {
+    animation: scroll-left 20s linear infinite;
+}
+
+.scroll-right {
+    animation: scroll-right 20s linear infinite;
+}
+
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-300px * 5 - 40px * 5)); } 
+}
+
+@keyframes scroll-right {
+    0% { transform: translateX(calc(-300px * 5 - 40px * 5)); }
+    100% { transform: translateX(0); }
+}
+
+.mobile-reverse-track {
+    display: none; /* Hidden by default on desktop */
+}
+
+.logo-card {
+    background-color: var(--text-white);
+    padding: 20px;
+    border-radius: 12px;
+    width: 300px; /* Default desktop width */
+    height: 160px; /* Default desktop height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+.logo-card img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+/* =========================================
+   2.5 PRODUCTS HEADER & 2.6 PRODUCTS LIST
+   ========================================= */
+
+.products-header-section {
+    padding: 60px 0;
+    background-color: #f4f6f8; /* Gris muy suave */
+    text-align: center;
+}
+
+.products-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--bg-blue-light); /* Azul */
+    margin-bottom: 10px;
+}
+
+.products-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 0;
+}
+
+.products-list-section {
+    position: relative;
+    padding: 80px 0;
+    background-color: #1a1a1a; /* Fallback dark */
+    background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.products-list-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Darker overlay for text visibility */
+    z-index: 1;
+}
+
+/* Ensure overlay is present if needed, or use the general .overlay class */
+
+.products-list-section .product-name {
+    color: var(--text-white);
+    font-size: 1.5rem;
+    margin: 15px 0 10px;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Better readability on glass */
+}
+
+.products-list-section .product-desc {
+    color: #f0f0f0;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Button override for this section */
+.btn-product {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: var(--whatsapp-green);
+    color: white;
+    text-decoration: none; 
+    border: none; /* Removed hard line */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 20px;
+    padding: 20px; 
+    text-align: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+    overflow: hidden; 
+}
+
+.product-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.product-item {
+    background: rgba(255, 255, 255, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px); /* Increased blur */
+    border-radius: 20px;
+    padding: 20px; 
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; 
+}
+
+/* New Product Image Style */
+.product-img-container {
+    width: 100%;
+    height: 150px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-item:hover .product-img {
+    transform: scale(1.1);
+}
+
+/* Remove old product-icon styles if necessary or just override */
+.product-icon { display: none; }
+
+/* =========================================
+   NEW SECTIONS
+   ========================================= */
+
+/* 1. WHY PRODUCER (Comparison) */
+.comparison-section {
+    padding: 100px 0;
+    background-color: #fff;
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.comparison-card {
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.comparison-card.pro {
+    background-color: #f0f7ff; /* Light Blue */
+    border: 2px solid var(--bg-blue-light);
+}
+
+.comparison-card.con {
+    background-color: #fff0f0; /* Light Red */
+    border: 2px solid #ffdddd;
+    opacity: 0.8;
+}
+
+.comparison-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: var(--font-main);
+}
+
+.comparison-list {
+    list-style: none;
+}
+
+.comparison-list li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+.comparison-list li i {
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.pro li i { color: #2ecc71; }
+.con li i { color: #e74c3c; }
+
+/* 2. PROCESS TIMELINE */
+.process-section {
+    padding: 100px 0;
+    position: relative;
+    background: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+    background-attachment: fixed;
+    text-align: center;
+    color: white; /* Force white text */
+}
+
+.process-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: var(--overlay-color); /* Same overlay as partners */
+    z-index: 1;
+}
+
+.process-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Force titles white within this section since HTML has inline styles */
+.process-section .section-title,
+.process-section .section-subtitle,
+.process-section h3,
+.process-section p {
+    color: white !important;
+}
+
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1000px;
+    margin: 50px auto 0;
+    position: relative;
+    flex-wrap: wrap; /* Para movil */
+    gap: 20px;
+}
+
+/* Line connectors via ::before/after could be complex on mobile, simplified approach: */
+.process-step {
+    flex: 1;
+    padding: 20px;
+    position: relative;
+    min-width: 200px;
+    background-color: #0077b6;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    min-height: 220px;
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background-color: var(--bg-blue-light);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 0 auto 20px;
+    box-shadow: 0 5px 15px rgba(0,159,227,0.3);
+}
+
+.step-title {
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-family: var(--font-main);
+}
+
+/* 3. TESTIMONIALS */
+.testimonials-section {
+    padding: 100px 0;
+    background-color: var(--bg-blue-light);
+    color: white;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.testimonial-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.testimonial-text {
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.testimonial-author {
+    font-weight: 700;
+    text-align: right;
+    font-size: 0.9rem;
+}
+
+/* 4. FAQ ACCORDION */
+.faq-section {
+    padding: 100px 0;
+    background-color: #fff;
+}
+
+.accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 20px;
+    background: none;
+    border: none;
+    text-align: left;
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-dark);
+}
+
+.accordion-header:hover {
+    color: var(--bg-blue-light);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 20px;
+}
+
+.accordion-content p {
+    padding-bottom: 20px;
+    color: #666;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 200px; /* aprox */
+}
+
+/* 5. FINAL CTA */
+.final-cta-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--bg-blue-light) 0%, var(--bg-blue-dark) 100%);
+    text-align: center;
+    color: white;
+}
+
+.final-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--whatsapp-green);
+    color: white;
+    padding: 20px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-top: 30px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
+.final-cta-btn:hover {
+    transform: scale(1.05);
+}
+
+.final-cta-btn i {
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+
+/* =========================================
+   3. SECCIÓN CONTACTO
+   ========================================= */
+.contact-section {
+    background-color: var(--bg-blue-light);
+    background-image: radial-gradient(circle at 10% 20%, rgb(0, 174, 255) 0%, rgb(0, 159, 227) 90%); /* Sutil gradiente para 'ondas' */
+    padding: 100px 0;
+    color: var(--text-white);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* Mapa un poco más grande o balanceado */
+    gap: 50px;
+    align-items: center;
+}
+
+/* Mapa Checkbox */
+.map-container {
+    background-color: var(--text-white);
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    height: 400px;
+}
+
+.map-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+}
+
+/* Datos de Contacto */
+.contact-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-circle {
+    width: 70px;
+    height: 70px;
+    background-color: var(--text-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--bg-blue-light);
+    flex-shrink: 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.contact-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.contact-text a {
+    color: var(--text-white);
+    text-decoration: none;
+}
+
+.contact-subtext {
+    font-size: 0.9rem;
+    font-weight: 400;
+    opacity: 0.8;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .mobile-reverse-track {
+        display: block; /* Show on mobile */
+    }
+    
+    .logo-card {
+        width: 180px; /* Smaller cards on mobile */
+        height: 100px;
+    }
+
+    /* Recalculate widths for mobile */
+    .carousel-track {
+        width: calc(180px * 10);
+        gap: 20px;
+    }
+
+    @keyframes scroll-left {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-180px * 5 - 20px * 5)); } 
+    }
+
+    @keyframes scroll-right {
+        0% { transform: translateX(calc(-180px * 5 - 20px * 5)); }
+        100% { transform: translateX(0); }
+    }
+
+    .hero-grid, .contact-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .hero-image-wrapper {
+        order: -1; /* Foto arriba en móvil */
+        margin-bottom: 30px;
+    }
+
+    .profile-photo {
+        width: 280px;
+        height: 280px;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-content {
+        padding-right: 0;
+    }
+
+    .whatsapp-block {
+        margin: 0 auto;
+    }
+    
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .map-container {
+        height: 300px;
+    }
+    .comparison-grid{   
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
