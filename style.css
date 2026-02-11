@@ -266,7 +266,7 @@ h1, h2, h3, h4 {
 
 .section-title {
     color: var(--text-white);
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
     margin-bottom: 10px;
 }
@@ -891,22 +891,21 @@ h1, h2, h3, h4 {
    5.5 SECCION SINIESTROS
    ========================================= */
 .siniestros-section {
-    padding: 80px 0;
+    padding: 40px 0;
     background-color: #f9f9f9;
 }
 
 .siniestros-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
     margin-top: 40px;
+    gap: 10px;
 }
 
 .siniestro-card {
     background: white;
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     border-top: 5px solid var(--bg-blue-light);
     transition: transform 0.3s ease;
 }
@@ -967,9 +966,8 @@ h1, h2, h3, h4 {
    5.6 SECCION TELEFONOS EMERGENCIA
    ========================================= */
 .emergency-phones-section {
-    padding: 60px 0;
-    background-color: var(--text-white);
-    border-top: 1px solid #eee;
+    padding: 10px 0;
+    background-color: #f9f9f9;
 }
 
 .emergency-grid {
