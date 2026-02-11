@@ -89,14 +89,14 @@ h1, h2, h3, h4 {
 }
 
 .hero-logo {
-    height: 60px; 
+    height: 50px; 
     width: auto;
 }
 
 .brand-tagline {
     font-family: var(--font-main);
     color: var(--text-white);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 800;
     line-height: 1.2;
     text-transform: uppercase;
@@ -826,6 +826,10 @@ h1, h2, h3, h4 {
         100% { transform: translateX(0); }
     }
 
+    .hero-section{
+        min-height: 150vh;
+    }
+
     .hero-grid, .contact-grid {
         grid-template-columns: 1fr;
         text-align: center;
@@ -882,3 +886,152 @@ h1, h2, h3, h4 {
 .delay-100 { transition-delay: 0.1s; }
 .delay-200 { transition-delay: 0.2s; }
 .delay-300 { transition-delay: 0.3s; }
+
+/* =========================================
+   5.5 SECCION SINIESTROS
+   ========================================= */
+.siniestros-section {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
+.siniestros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.siniestro-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-top: 5px solid var(--bg-blue-light);
+    transition: transform 0.3s ease;
+}
+
+.siniestro-card:hover {
+    transform: translateY(-5px);
+}
+
+.siniestro-card.alert { border-color: #e74c3c; } /* Rojo alerta */
+.siniestro-card.info { border-color: var(--bg-blue-light); } /* Azul info */
+.siniestro-card.action { border-color: var(--whatsapp-green); } /* Verde accion */
+
+.siniestro-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.siniestro-card.alert .siniestro-icon { color: #e74c3c; }
+.siniestro-card.info .siniestro-icon { color: var(--bg-blue-light); }
+.siniestro-card.action .siniestro-icon { color: var(--whatsapp-green); }
+
+.siniestro-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.siniestro-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.siniestro-card ul li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.siniestro-card ul li::before {
+    content: "\2022";
+    color: var(--bg-blue-light);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.siniestro-card p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* =========================================
+   5.6 SECCION TELEFONOS EMERGENCIA
+   ========================================= */
+.emergency-phones-section {
+    padding: 60px 0;
+    background-color: var(--text-white);
+    border-top: 1px solid #eee;
+}
+
+.emergency-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+.emergency-card {
+    background-color: #f8f9fa;
+    padding: 25px 20px;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.emergency-card:hover {
+    background-color: var(--bg-blue-light);
+    border-color: var(--bg-blue-light);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 159, 227, 0.2);
+}
+
+.emergency-name {
+    display: block;
+    color: var(--text-dark);
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.emergency-card:hover .emergency-name {
+    color: var(--text-white);
+}
+
+.emergency-number {
+    display: block;
+    color: #666;
+    font-weight: 600;
+    font-size: 1.2rem;
+    font-family: monospace;
+    transition: color 0.3s ease;
+}
+
+.emergency-card:hover .emergency-number {
+    color: var(--text-white);
+}
+
+.emergency-icon {
+    font-size: 1.5rem;
+    color: var(--bg-blue-light);
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.emergency-card:hover .emergency-icon {
+    color: var(--text-white);
+}
